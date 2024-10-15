@@ -36,13 +36,13 @@ class User(AbstractBaseUser, PermissionsMixin):
         regex=r'^[6-9][0-9]{9}$',
         message="Phone number must be entered in the format: '9090000900'. \
              Only 10 digits allowed.")
-    ticket_id = models.CharField(max_length=30)
+    ticket_id = models.CharField(max_length=30, blank=True, null=True)
     first_name = models.CharField(max_length=50)    
     last_name = models.CharField(max_length=50)
     email = models.CharField(
         max_length=255, validators=[EMAIL_VALIDATOR], unique=True)
     mobile = models.CharField(
-        validators=[MOBILE_VALIDATOR], max_length=15, unique=True)
+        validators=[MOBILE_VALIDATOR], max_length=15, unique=True, blank=True, null=True)
     occupation = models.CharField(max_length=50, help_text="Job role/Course(if studing)")
     is_staff = models.BooleanField(default=False)
 
