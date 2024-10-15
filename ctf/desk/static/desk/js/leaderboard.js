@@ -1,6 +1,6 @@
 // ws stuff below
 
-var url = 'wss://' + window.location.host + '/ws/ctf/leaderboard';
+var url = 'ws://' + window.location.host + '/ws/ctf/leaderboard';
 const socket = new WebSocket(url);
 socket.addEventListener('close', function (event) {
     triggerAlert("danger", 'Connection closed. Try refreshing the page.');
@@ -167,5 +167,5 @@ var pconf= {
       }
     },
     "retina_detect": true
-  }
+  };
 particlesJS("particles-js", pconf); var count_particles, update; count_particles = document.querySelector('.js-count-particles'); update = function () { if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) { count_particles.innerText = window.pJSDom[0].pJS.particles.array.length; } requestAnimationFrame(update); }; requestAnimationFrame(update);;
