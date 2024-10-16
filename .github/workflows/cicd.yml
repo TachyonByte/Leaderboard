@@ -3,7 +3,7 @@ name: CI/CD
 on: 
   push:
     branches: 
-      - revert-7-3-integrating-cicd
+      - main
 
 jobs:
   build:
