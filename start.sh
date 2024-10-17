@@ -2,6 +2,7 @@
 # Collect static files
 cd ctf
 python manage.py collectstatic --noinput
+python manage.py migrate
 
 # Start Daphne
 daphne -b 0.0.0.0 -p 8089 ctf.asgi:application
