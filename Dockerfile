@@ -12,7 +12,8 @@ COPY Pipfile.lock /app/
 RUN pip install --upgrade pipenv
 RUN pipenv install --system
 COPY start.sh /app/
-copy nginx.conf /etc/nginx/
+COPY nginx.conf /etc/nginx/
+COPY ./ctf /app/ctf
 RUN ["chmod", "+x", "/app/start.sh"]
 
-CMD ["sh /app/start.sh"]
+CMD ["sh", "/app/start.sh"]
