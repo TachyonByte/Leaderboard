@@ -37,6 +37,16 @@ You can easily run the Leaderboard project using Docker. The project has been co
    docker run -d -p 80:8089 tachyonbyte/leaderboard:latest
    ```
 
+3. **(Optional) Implement persistence with volume mount:**
+
+    To ensure data persistence, you can mount a volume for the SQLite database:
+
+    ```bash
+    docker run -d -p 80:8089 --mount source=sqlite-db,target=/app/ctf/ tachyonbyte/leaderboard:latest
+    ```
+
+    This command mounts the local `sqlite-db` volume to the container’s `/app/ctf/` directory, where the database is stored.
+
 3. Access the leaderboard by visiting `http://localhost` in your browser.
 
 ## Usage
