@@ -47,7 +47,7 @@ You can easily run the Leaderboard project using Docker. The project has been co
 
     This command mounts the local `sqlite-db` volume to the container’s `/app/ctf/` directory, where the database is stored.
 
-3. Access the leaderboard by visiting `http://localhost` in your browser.
+4. Access the leaderboard by visiting `http://localhost` in your browser.
 
 ## Usage
 
