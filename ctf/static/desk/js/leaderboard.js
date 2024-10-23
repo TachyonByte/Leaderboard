@@ -1,6 +1,6 @@
 // ws stuff below
 
-var url = 'wss://' + window.location.host + '/ws/ctf/leaderboard';
+var url = 'ws://' + window.location.host + '/ws/ctf/leaderboard';
 const socket = new WebSocket(url);
 socket.addEventListener('close', function (event) {
     triggerAlert("danger", 'Connection closed. Try refreshing the page.');
