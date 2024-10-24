@@ -1,3 +1,6 @@
+<img src="https://tachyonbyte.s3.ap-south-1.amazonaws.com/static/assets/img/fullwhite.png" alt="TachyonByte" width="200"/>
+
+[![CI/CD](https://github.com/TachyonByte/Leaderboard/actions/workflows/cicd.yml/badge.svg)](https://github.com/TachyonByte/Leaderboard/actions/workflows/cicd.yml)
 
 # Leaderboard Project
 
@@ -5,20 +8,19 @@ Capture the Flag (CTF) competitions are exciting events where teams compete by s
 
 ## Features
 
-- Real-time leaderboard updates.
-- User authentication and session management.
-- Score submission and verification system.
-- Easy-to-use admin interface for managing challenges and teams.
-- Built-in security to prevent cheating or unauthorized score submissions.
+- **Live Leaderboard Updates**: Witness scores change as teams solve challenges, fueling the competitive spirit!
+- **Secure Authentication**: User accounts and session management ensure data integrity and prevent unauthorized access.
+- **Streamlined Score Submission**: Submit scores effortlessly and enjoy a seamless verification process.
+- **Intuitive Admin Panel**: Manage challenges, add teams, and customize the competition experience with ease.
+- **Built-in Security Measures**: Rest assured; robust security features safeguard against cheating and ensure a level playing field.
+
 
 ## Technologies Used
-
-- **Django**: A high-level Python Web framework.
-- **Channels**: Enables handling WebSockets for real-time leaderboard updates.
-- **Redis**: Used for caching and real-time communication.
-- **Docker**: For containerizing the application.
-- **Github Actions CI/CD**: Continuous integration and deployment pipelines.
-
+- **Django**: A robust Python web framework for rapid development.
+- **Django-Channels**: Enables real-time communication for dynamic leaderboard updates.
+- **Redis**: High-performance data store for caching and real-time interactions.
+- **Docker**: Simplifies deployment and ensures consistent environments.
+- **Github Actions**: Automates testing and deployment for a streamlined workflow.
 ## Installation
 
 You can easily run the Leaderboard project using Docker or Docker Compose. The project has been containerized and is available as an image on Docker Hub.
@@ -61,22 +63,22 @@ Follow these steps to set up the Leaderboard project using Docker Compose:
 1. **Create a `docker-compose.yml` file:**
 
    ```yaml
-  services:
-   app:
-      depends_on:
-         - redis
-      image: tachyonbyte/leaderboard:latest
-      ports:
-         - "80:80"
-      volumes:
-         - sqlite-db:/app/ctf/ctf/db.sqlite3
+   services:
+      app:
+         depends_on:
+            - redis
+         image: tachyonbyte/leaderboard:latest
+         ports:
+            - "80:80"
+         volumes:
+            - sqlite-db:/app/ctf/ctf/db.sqlite3
 
-   redis:
-      image: redis:alpine
+      redis:
+         image: redis:alpine
 
-  volumes:
-    sqlite-db:
-      driver: local
+   volumes:
+      sqlite-db:
+         driver: local
    ```
 
 2. **Run the Docker Compose setup:**
@@ -90,7 +92,7 @@ Follow these steps to set up the Leaderboard project using Docker Compose:
    This will pull the necessary Docker image, create the required containers, and run the application.
 
 3. **Access the leaderboard:**  
-   Visit `http://localhost` in your browser.
+   Visit [`http://localhost`](http://localhost) in your browser.
 
 4. **Stop the application (when needed):**
 
@@ -104,6 +106,14 @@ This method simplifies running the application and managing dependencies through
 
 - Access the leaderboard and manage teams and challenges via the provided interface.
 - Submit scores and track rankings in real-time.
+
+## Credits
+- [Tanmay More]([https://github.com/tanmay-more-dev]) - Implemented core functionality, designed the architecture
+- [Purvesh Wakode]([https://github.com/purvesh0110]) - Implemented Github Actions
+- [Abhijit More]([https://github.com/mabhi49]) - Containerised the project
+- [Paresh Pawar]([https://github.com/pareshpawar]) - Planning and Management
+
+
 
 ## Contributing
 
