@@ -36,7 +36,7 @@ You can easily run the Leaderboard project using Docker or Docker Compose. The p
 2. **Run the container:**
 
    ```bash
-   docker run -d -p 80:8089 tachyonbyte/leaderboard:latest
+   docker run -d -p 80:80 tachyonbyte/leaderboard:latest 
    ```
 
 3. **Implement persistence with volume mount (optional):**
@@ -44,7 +44,7 @@ You can easily run the Leaderboard project using Docker or Docker Compose. The p
    To ensure data persistence, you can mount a volume for the SQLite database:
 
    ```bash
-   docker run -d -p 80:8089 --mount source=sqlite-db,target=/app/ctf/ tachyonbyte/leaderboard:latest
+   docker run -d -p 80:80 --mount source=sqlite-db,target=/app/ctf/ tachyonbyte/leaderboard:latest
    ```
 
    This command mounts the local `sqlite-db` volume to the container’s `/app/ctf/` directory, where the database is stored.
@@ -61,21 +61,22 @@ Follow these steps to set up the Leaderboard project using Docker Compose:
 1. **Create a `docker-compose.yml` file:**
 
    ```yaml
-   services:
-     leaderboard:
-       image: tachyonbyte/leaderboard:latest
-       ports:
-         - "80:8089"
-       volumes:
-         - sqlite-db:/app/ctf/
-       networks:
-         - leaderboard-network
+  services:
+   app:
+      depends_on:
+         - redis
+      image: tachyonbyte/leaderboard:latest
+      ports:
+         - "80:80"
+      volumes:
+         - sqlite-db:/app/ctf/ctf/db.sqlite3
 
-   volumes:
-     sqlite-db:
+   redis:
+      image: redis:alpine
 
-   networks:
-     leaderboard-network:
+  volumes:
+    sqlite-db:
+      driver: local
    ```
 
 2. **Run the Docker Compose setup:**
